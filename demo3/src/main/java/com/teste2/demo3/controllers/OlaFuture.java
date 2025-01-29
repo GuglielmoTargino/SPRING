@@ -1,24 +1,32 @@
 package com.teste2.demo3.controllers;
 
-import org.springframework.stereotype.Controller;
+
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.teste2.demo3.service.OlaMundo;
+
 import org.springframework.web.bind.annotation.GetMapping;
 
 
 @RestController
-@Controller
-@ResponseBody
+//@Controller
+//@ResponseBody
 @RequestMapping("/olafuturo")
 
 public class OlaFuture {
+
+    private OlaMundo xy;
+
+    public OlaFuture(OlaMundo mundo){
+        this.xy=mundo;
+    }
 
     @GetMapping()    
     
     public String olafuture(){
 
-        return "Olá Futuro! Cheguei!";
+        return xy.olamundo("Guga avança!");
     }
 
 }

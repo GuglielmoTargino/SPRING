@@ -1,16 +1,29 @@
 package com.teste2.demo3.controllers;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
-@RestController
-@RequestMapping("/Guga")
 public class retornaNome {
-
-    @GetMapping()
-    public String Nome(){
-        return "Guga legal 10";
+    private String nome;
+    private int idade;
+    
+    public void setNome(String nome) {
+        this.nome = nome;
     }
+
+
+    public void setIdade(int idade) {
+        this.idade = idade;
+    }
+
+
+    public String getNome() {
+        return nome;
+    }
+
+
+    public int getIdade() {
+        return idade;
+    }
+
+
 
 }

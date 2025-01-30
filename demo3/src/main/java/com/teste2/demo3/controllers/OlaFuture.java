@@ -10,8 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 
 @RestController
-//@Controller
-//@ResponseBody
 @RequestMapping("/olafuturo")
 
 public class OlaFuture {
@@ -30,3 +28,4 @@ public class OlaFuture {
     }
 
 }
+

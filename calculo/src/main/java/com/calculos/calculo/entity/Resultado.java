@@ -3,6 +3,7 @@ package com.calculos.calculo.entity;
 public class Resultado {
     private Integer soma;
     private Double media;
+    
     public Integer getSoma() {
         return soma;
     }

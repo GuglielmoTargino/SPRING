@@ -4,6 +4,8 @@ package com.calculos.calculo.service;
 import org.springframework.stereotype.Service;
 import com.calculos.calculo.entity.Entrada;
 import com.calculos.calculo.entity.Resultado;
+import java.util.Collections;
+
 
 
 @Service
@@ -23,6 +25,16 @@ public class CalculosService {
         resultado.setSoma(j);
         double medi=(double)j/entrada.getLista().size();
         resultado.setMedia(medi);
+
+        Integer maior = Collections.max(entrada.getLista());
+        resultado.setMax(maior);
+        Integer menor = Collections.min(entrada.getLista());
+        resultado.setMin(menor);
+        Integer cont= entrada.getLista().size();
+        resultado.setCont(cont);
+
+
+
         return resultado;
     
         

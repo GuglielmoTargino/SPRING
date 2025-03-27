@@ -32,12 +32,12 @@ public class CarroController {
             // TODO: handle exception
         }
     }
-    @GetMapping("/find/{id}")
 
+    @GetMapping("/find/{id}")
     public ResponseEntity<Carro> find(@PathVariable int id){
         try {
             Carro carro = this.carroService.find(id);
-            return new ResponseEntity<Carro>(carro, HttpStatus.OK);
+            return new ResponseEntity<>(carro, HttpStatus.OK);
         } catch (Exception e) {
             return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
             // TODO: handle exception

@@ -1,19 +1,21 @@
 package com.calculos.calculo.service;
+import com.calculos.calculo.repository.CarroRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.calculos.calculo.entity.Carro;
-import com.calculos.calculo.repository.CarroRepository;
+
 
 
 @Service
 public class CarroService {
+
     @Autowired
-    private CarroRepository carroRepository;
+    private CarroRepository carrorepositorio;
 
     public String save(Carro carro){
 
-        this.carroRepository.save(carro);
+        this.carrorepositorio.save(carro);
         // Query aqui
         return "Carro cadastrado";
     }

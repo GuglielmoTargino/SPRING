@@ -1,13 +1,13 @@
-package com.crudsimples.crudsimplessb;
+package com.crudweb.crudcrud;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class CrudsimplessbApplication {
+public class CrudcrudApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(CrudsimplessbApplication.class, args);
+		SpringApplication.run(CrudcrudApplication.class, args);
 	}
 
 }

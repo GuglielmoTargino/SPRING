@@ -19,7 +19,7 @@ import com.crudweb.crudcrud.entity.Carro;
 import com.crudweb.crudcrud.service.CarroService;
 
 @RestController
-@RequestMapping("/Carro")
+@RequestMapping("/carro")
 public class CarroController {
 
     @Autowired

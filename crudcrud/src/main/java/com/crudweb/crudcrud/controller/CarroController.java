@@ -33,7 +33,7 @@ public class CarroController {
         return new ResponseEntity<>(resultado,HttpStatus.CREATED);
       } catch (Exception e) {
         // TODO: handle exception
-        return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
+        return new ResponseEntity<>("null",HttpStatus.BAD_REQUEST);
       }
     }
 
@@ -45,7 +45,7 @@ public class CarroController {
             
         } catch (Exception e) {
             // TODO: handle exception
-            return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("null",HttpStatus.BAD_REQUEST);
         }
     }
 
@@ -57,7 +57,7 @@ public class CarroController {
             return new ResponseEntity<>(resultado,HttpStatus.OK);
         } catch (Exception e) {
             // TODO: handle exception
-            return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("null",HttpStatus.BAD_REQUEST);
         }
 
     }

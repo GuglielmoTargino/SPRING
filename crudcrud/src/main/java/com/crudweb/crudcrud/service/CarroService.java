@@ -1,7 +1,6 @@
 package com.crudweb.crudcrud.service;
 
 import java.util.List;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.crudweb.crudcrud.entity.Carro;
@@ -31,14 +30,17 @@ public class CarroService {
     }
 
     public List<Carro> findall(){
-        List<Carro> lista =this.findall();
+
+        List<Carro> lista =this.carrocel.findAll();
         return lista;
     }
 
     public Carro findById(Long id){
-       Carro item = this.findById(id);
+       Carro item = this.carrocel.findById(id).get();
         return item;
      
     }
+
+    
 
 }

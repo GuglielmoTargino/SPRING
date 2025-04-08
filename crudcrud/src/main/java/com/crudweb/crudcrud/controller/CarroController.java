@@ -72,7 +72,7 @@ public class CarroController {
             return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
         }
     }
-    @GetMapping("/buscar_id/{id}")
+    @GetMapping("/buscar/{id}")
 
     public ResponseEntity<Carro> findById(@PathVariable Long id){
 

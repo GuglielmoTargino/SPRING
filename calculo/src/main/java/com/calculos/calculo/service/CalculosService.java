@@ -10,6 +10,7 @@ import java.util.Collections;
 
 @Service
 public class CalculosService {
+
     public Resultado somar(Entrada entrada) {
         Resultado resultado= new Resultado();
         Integer j=0;
@@ -33,10 +34,7 @@ public class CalculosService {
         Integer cont= entrada.getLista().size();
         resultado.setCont(cont);
 
-
-
-        return resultado;
-    
+        return resultado;   
         
     }
 

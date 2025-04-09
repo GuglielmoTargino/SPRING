@@ -24,7 +24,7 @@ public class CalculosController {
 
         try {
             Resultado resultado = this.calculosService.somar(entrada);
-            return new ResponseEntity<Resultado>(resultado, HttpStatus.OK);
+            return new ResponseEntity<>(resultado, HttpStatus.OK);
             
         } catch (Exception e) {
             // TODO: handle exception

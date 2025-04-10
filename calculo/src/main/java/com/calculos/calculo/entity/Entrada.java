@@ -3,6 +3,7 @@ package com.calculos.calculo.entity;
 import java.util.List;
 
 public class Entrada {
+    
     private List<Integer> lista;
 
     public List<Integer> getLista() {

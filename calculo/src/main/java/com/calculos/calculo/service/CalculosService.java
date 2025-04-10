@@ -5,6 +5,7 @@ import org.springframework.stereotype.Service;
 import com.calculos.calculo.entity.Entrada;
 import com.calculos.calculo.entity.Resultado;
 import java.util.Collections;
+import java.util.List;
 
 
 
@@ -36,6 +37,19 @@ public class CalculosService {
 
         return resultado;   
         
+    }
+
+
+    public int soma(List<Integer> x){
+        int soma = 0;
+
+        for ( int i=0; i<x.size(); i++){
+            soma+=x.get(i);
+            }
+
+            return soma;
+
+     
     }
 
 }

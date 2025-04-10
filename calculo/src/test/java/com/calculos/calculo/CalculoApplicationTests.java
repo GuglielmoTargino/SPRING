@@ -1,7 +1,9 @@
 package com.calculos.calculo;
 
+import com.calculos.calculo.controller.CalculosController;
 import com.calculos.calculo.entity.Entrada;
 import com.calculos.calculo.entity.Resultado;
+import com.calculos.calculo.repository.CarroRepository;
 import com.calculos.calculo.service.CalculosService;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
@@ -11,6 +13,12 @@ import java.util.List;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.test.context.bean.override.mockito.MockitoBean;
+import static org.mockito.Mockito.when;
+
+
 
 @SpringBootTest
 class CalculoApplicationTests {
@@ -18,46 +26,41 @@ class CalculoApplicationTests {
 
 	@Autowired
     CalculosService calculoteste;
-	//@Autowired
-	//Entrada pega;
-	//@Autowired
-	//Entrada mostra;
+	@Autowired
+	CalculosController calc;
+	Entrada pega = new Entrada();
 
-
-		int y=20;
+	@MockitoBean
+	CarroRepository car;	
 
 	@Test
 	void contextLoads() {
 	
-		/*List<Integer> lis = new ArrayList<>();
-		lis.add(5);
-		lis.add(5);
-		lis.add(5);
-		lis.add(5);
-		pega.setLista(lis);
-		 mostra.getLista();	
-	   Resultado retorno = this.calculoteste.somar(mostra);
-        assertEquals(40, retorno);		
-		*/
-	}
-
-
-	@Test
-	void cenario2(){
 		List<Integer> lis = new ArrayList<>();
 		lis.add(5);
 		lis.add(5);
 		lis.add(5);
 		lis.add(5);
-		lis.add(5);
-		lis.add(5);
-	
-	
+		pega.setLista(lis);
 
-		int retorno = calculoteste.soma(lis);
+		when(car.findAll()).thenReturn(null);
+	
+	  	ResponseEntity<Resultado> retorno = this.calc.somar(pega);
+        assertEquals(HttpStatus.OK, retorno.getStatusCode());		
+		
+	}
+	@Test
+	void cenario2(){
+		List<Integer> lis2 = new ArrayList<>();
+		lis2.add(5);
+		lis2.add(5);
+		lis2.add(5);
+		lis2.add(5);
+		lis2.add(5);
+		lis2.add(5);
+		int retorno = calculoteste.soma(lis2);
 		assertEquals(30, retorno);
 	}
-
 
 
 

@@ -10,6 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -23,6 +24,7 @@ import static org.mockito.Mockito.when;
 @SpringBootTest
 class CalculoApplicationTests {
 
+	List<Integer> lis = new ArrayList<>();
 
 	@Autowired
     CalculosService calculoteste;
@@ -31,12 +33,11 @@ class CalculoApplicationTests {
 	Entrada pega = new Entrada();
 
 	@MockitoBean
-	CarroRepository car;	
-
-	@Test
-	void contextLoads() {
+	CarroRepository car;
 	
-		List<Integer> lis = new ArrayList<>();
+	@BeforeEach
+	void prepair(){
+		//List<Integer> lis = new ArrayList<>();
 		lis.add(5);
 		lis.add(5);
 		lis.add(5);
@@ -44,22 +45,25 @@ class CalculoApplicationTests {
 		pega.setLista(lis);
 
 		when(car.findAll()).thenReturn(null);
-	
+	}
+
+	@Test
+	void contextLoads() {	
 	  	ResponseEntity<Resultado> retorno = this.calc.somar(pega);
         assertEquals(HttpStatus.OK, retorno.getStatusCode());		
-		
 	}
+
 	@Test
 	void cenario2(){
-		List<Integer> lis2 = new ArrayList<>();
-		lis2.add(5);
-		lis2.add(5);
-		lis2.add(5);
-		lis2.add(5);
-		lis2.add(5);
-		lis2.add(5);
-		int retorno = calculoteste.soma(lis2);
-		assertEquals(30, retorno);
+		//List<Integer> lis2 = new ArrayList<>();
+		//lis2.add(5);
+		//lis2.add(5);
+		//lis2.add(5);
+		//lis2.add(5);
+		//lis2.add(5);
+		//lis2.add(5);
+		int retorno = calculoteste.soma(lis);
+		assertEquals(20, retorno);
 	}
 
 

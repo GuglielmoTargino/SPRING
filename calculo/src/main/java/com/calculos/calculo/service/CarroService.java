@@ -14,21 +14,26 @@ public class CarroService {
     private CarroRepository carrorepositorio;
 
     public String save(Carro carro){
+        this.verificarnomecarro(carro.getNome(),carro.getAno());
 
         this.carrorepositorio.save(carro);
         // Query aqui
         return "Carro cadastrado";
     }
 
+    public void verificarnomecarro(String nome,int ano){
+        if(nome.equals("brava") && ano<1970)
+        throw new RuntimeException();
+
+    }
+
     public Carro find(int id){
         if (id==1) {
             Carro carro = new Carro();
-
             carro.setNome("TUKO");
             carro.setMarca("Kroco");
             carro.setModelo("Tekira");
             carro.setAno(2000);
-
             return carro;
             
         }else{

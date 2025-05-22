@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.calculos.calculo.entity.Carro;
 import com.calculos.calculo.service.CarroService;
+
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 
 
@@ -18,6 +20,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @RestController
 @RequestMapping("/carro")
+@CrossOrigin("*")
 public class CarroController {
     @Autowired
     private CarroService carroService;    

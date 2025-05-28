@@ -1,13 +1,53 @@
 package com.calculos.calculo.service;
-import com.calculos.calculo.repository.CarroRepository;
 
+import java.util.List;
+import com.calculos.calculo.repository.CarroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.calculos.calculo.entity.Carro;
 
 
 
+
 @Service
+public class CarroService {
+
+    @Autowired
+    private CarroRepository carrorepositorio;
+
+    public String save(Carro carro){
+        this.carrorepositorio.save(carro);
+        // Query aqui
+        return "Carro cadastrado";
+    }
+
+ 
+    
+   public List<Carro> findall(){
+        List<Carro> lista =this.carrorepositorio.findAll();
+        return lista;
+    }
+      
+    
+    public Carro find(long id){
+        Carro gh= this.carrorepositorio.findById(id).get();
+        return gh;
+    }
+    
+      public String update(Carro carro, Long id){
+        carro.setId(id);
+        this.carrorepositorio.save(carro);
+        return "Carro atualizado";
+    }
+
+    public String delete(Long id){
+        this.carrorepositorio.deleteById(id);
+        return "Carro deletado";
+    }
+
+}
+
+/*
 public class CarroService {
 
     @Autowired
@@ -21,35 +61,17 @@ public class CarroService {
         return "Carro cadastrado";
     }
 
-    //public void verificarnomecarro(String nome,int ano){
-       // if(nome.equals("brava") && ano<1970)
-       // throw new RuntimeException();
-
-    //}
-/* 
-    public Carro find(int id){
-
-       
-        if (id==1) {
-            Carro carro = new Carro();
-            carro.setNome("TUKO");
-            carro.setMarca("Kroco");
-            carro.setModelo("Tekira");
-            carro.setAno(2000);
-            return carro;
-            
-        }else{
-            return null;
-
-        }
-         
-     
+ 
+ 
+   public List<Carro> findall(){
+        List<Carro> lista =this.carrorepositorio.findAll();
+        return lista;
     }
-    */   //public Carro find(Long id){
-       public Carro find(long id){
-                //Carro item = this.carrocel.findById(id).get();
-                Carro gh= this.carrorepositorio.findById(id).get();
-                return gh;
+      
 
-        }
-}
+    public Carro find(long id){
+        Carro gh= this.carrorepositorio.findById(id).get();
+        return gh;
+    }
+} 
+ */

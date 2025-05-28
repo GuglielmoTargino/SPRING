@@ -13,7 +13,15 @@ import com.calculos.calculo.entity.Carro;
 import com.calculos.calculo.service.CarroService;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import java.util.List;
+
+
+
+
+
 
 
 
@@ -46,4 +54,146 @@ public class CarroController {
             // TODO: handle exception
         }
     }
+
+    
+    @GetMapping("/findall")
+    public ResponseEntity<List<Carro>> findall(){
+
+        try {
+            List<Carro> lista = this.carroService.findall();
+            return new ResponseEntity<>(lista, HttpStatus.OK);
+        } catch (Exception e) {
+            // TODO: handle exception
+            return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
+        }
+    }
+
+      @DeleteMapping("/delete/{id}")
+    public ResponseEntity<String> delete(@PathVariable Long id){
+
+        try {
+            String resultado= this.carroService.delete(id);
+            return new ResponseEntity<>(resultado,HttpStatus.OK);
+        } catch (Exception e) {
+            // TODO: handle exception
+            return new ResponseEntity<>("null",HttpStatus.BAD_REQUEST);
+        }
+
+    }
+
+
+
+       @PutMapping("/atualizar/{id}")
+    public ResponseEntity<String> update(@RequestBody Carro carro, @PathVariable Long id){
+        try {
+            String resultado= this.carroService.update(carro, id);
+        return new ResponseEntity<>(resultado,HttpStatus.CREATED);
+            
+        } catch (Exception e) {
+            // TODO: handle exception
+            return new ResponseEntity<>("null",HttpStatus.BAD_REQUEST);
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

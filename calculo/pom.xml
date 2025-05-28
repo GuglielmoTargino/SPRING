@@ -44,6 +44,13 @@
 			<artifactId>mysql-connector-j</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+
+		<dependency> <!--  conector para bd oracle-->
+    		<groupId>com.oracle.database.jdbc</groupId>
+    		<artifactId>ojdbc8</artifactId>
+    		<version>19.3.0.0</version>
+		</dependency>
+
 		
 		
 	

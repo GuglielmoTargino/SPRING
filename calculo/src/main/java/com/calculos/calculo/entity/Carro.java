@@ -13,9 +13,10 @@ public class Carro {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String nome;
+    private int ano;
     private String marca;
     private String modelo;
-    private int ano;
+    
 
     
     public String getNome() {

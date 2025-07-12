@@ -28,7 +28,8 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/carro")
-@CrossOrigin("*")
+//@CrossOrigin("*")
+
 public class CarroController {
     @Autowired
     private CarroService carroService;    
@@ -39,13 +40,13 @@ public class CarroController {
             String mensagem = this.carroService.save(carro);
             return new ResponseEntity<String>(mensagem,HttpStatus.OK);
         } catch (Exception e) {
-            return new ResponseEntity<String>("Coisa podre aki",HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<String>("Coisa podre aki"+e,HttpStatus.BAD_REQUEST);
             // TODO: handle exception
         }
     }
 
     @GetMapping("/find/{id}")
-    public ResponseEntity<Carro> find(@PathVariable int id){
+    public ResponseEntity<Carro> find(@PathVariable long id){
         try {
             Carro carro = this.carroService.find(id);
             return new ResponseEntity<>(carro, HttpStatus.OK);
@@ -81,8 +82,8 @@ public class CarroController {
 
     }
 
-
-
+    
+    
        @PutMapping("/atualizar/{id}")
     public ResponseEntity<String> update(@RequestBody Carro carro, @PathVariable Long id){
         try {
@@ -95,7 +96,7 @@ public class CarroController {
         }
     }
 
-
+    
 
 
 

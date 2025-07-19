@@ -1,4 +1,4 @@
-package app.auth;
+package com.calculos.calculo.auth;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;

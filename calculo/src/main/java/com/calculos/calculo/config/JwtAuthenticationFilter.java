@@ -1,4 +1,4 @@
-package app.config;
+package com.calculos.calculo.config;
 
 //JwtAuthenticationFilter.java
 

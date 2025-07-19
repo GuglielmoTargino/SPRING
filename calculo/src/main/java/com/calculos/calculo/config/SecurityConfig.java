@@ -33,7 +33,7 @@ public class SecurityConfig  {
 		.csrf(AbstractHttpConfigurer::disable)
 		.cors(AbstractHttpConfigurer::disable)
 		.authorizeHttpRequests((requests) -> requests
-				.requestMatchers("admin/carros").permitAll() //seta como publico
+				.requestMatchers("/carro").permitAll() //seta como publico
 				//.requestMatchers("/api/login").permitAll() //seta como publico
 				//.requestMatchers("/api/register").permitAll()// para registrar usuarios caso tenha tela
 				.anyRequest().authenticated())

@@ -6,13 +6,13 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import org.springframework.stereotype.Service;
 
 
 
 
+@Service
 public class Servico {
-
-
     private static final String URL = "jdbc:mysql://localhost:3306/seu_banco";
     private static final String USUARIO = "root";
     private static final String SENHA = "sua_senha";

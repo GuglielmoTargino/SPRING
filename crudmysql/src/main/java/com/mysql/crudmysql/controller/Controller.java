@@ -1,12 +1,20 @@
 package com.mysql.crudmysql.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+import com.mysql.crudmysql.entity.Carro;
+import com.mysql.crudmysql.service.Servico;
+
 @RestController
 @RequestMapping("/carros")
+
 public class Controller {
 
-    private final CarroDAO carroDAO;
+    @Autowired
+    private Servico serve;
 
-    public CarroController(CarroDAO carroDAO) {
+    public CarroController(Carro carroDAO) {
         this.carroDAO = carroDAO;
     }
 

@@ -1,14 +1,23 @@
 package com.mysql.crudmysql.entity;
 
 
-
 public class Carro {
 
     private Long id;
-    private String nome;
+    private Long ano;
     private String marca;
+    private String modelo;
+    private String nome;
+    
 
 
+    public Carro(Long id, Long ano, String marca, String modelo, String nome) {
+        this.id = id;
+        this.ano = ano;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.nome = nome;
+    }
     public Long getId() {
         return id;
     }
@@ -26,6 +35,12 @@ public class Carro {
     }
     public void setMarca(String marca) {
         this.marca = marca;
+    }
+    public Long getAno() {
+        return ano;
+    }
+    public String getModelo() {
+        return modelo;
     }
 
 

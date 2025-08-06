@@ -8,9 +8,6 @@ public class CrudmysqlApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(CrudmysqlApplication.class, args);
-	}
-
-
-	
+		}	
 
 }

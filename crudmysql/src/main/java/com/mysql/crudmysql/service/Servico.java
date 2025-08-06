@@ -13,46 +13,49 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class Servico {
-    private static final String URL = "jdbc:mysql://localhost:3306/seu_banco";
-    private static final String USUARIO = "root";
-    private static final String SENHA = "sua_senha";
+    private static final String URL = "jdbc:mysql://localhost:3306/carro";
+    private static final String USUARIO = "ght";
+    private static final String SENHA = "4004";
 
 
 public void listarCarros() {
-        Connection conn = null;
-        PreparedStatement stmt = null;
-        ResultSet rs = null;
+       
 
         try {
             // 1. Conectar ao banco de dados
-            conn = DriverManager.getConnection(URL, USUARIO, SENHA);
+            //conn = DriverManager.getConnection(URL, USUARIO, SENHA);
 
             // 2. Criar a consulta SQL
-            String sql = "SELECT ano, marca FROM carro";
+            //String sql = "SELECT ano, marca FROM carro";
 
             // 3. Preparar e executar
-            stmt = conn.prepareStatement(sql);
-            rs = stmt.executeQuery();
+            //stmt = conn.prepareStatement(sql);
+            //rs = stmt.executeQuery();
 
             // 4. Percorrer os resultados
+            //while (rs.next()) {
+               // int ano = rs.getInt("ano");
+               // String marca = rs.getString("marca");
+               // System.out.println("Ano: " + ano + ", Marca: " + marca);
+            //}
+
+            Connection conn = DriverManager.getConnection(URL, USUARIO, SENHA);
+            PreparedStatement stmt = conn.prepareStatement("SELECT ano, marca FROM carro");
+            ResultSet rs = stmt.executeQuery();
+         
             while (rs.next()) {
                 int ano = rs.getInt("ano");
                 String marca = rs.getString("marca");
                 System.out.println("Ano: " + ano + ", Marca: " + marca);
             }
-
         } catch (SQLException e) {
             e.printStackTrace();
-        } finally {
-            // 5. Fechar recursos
-            try { if (rs != null) rs.close(); } catch (Exception e) {}
-            try { if (stmt != null) stmt.close(); } catch (Exception e) {}
-            try { if (conn != null) conn.close(); } catch (Exception e) {}
-        }
+        
+    } 
     }
 
+
+
 }
-
-
 
 

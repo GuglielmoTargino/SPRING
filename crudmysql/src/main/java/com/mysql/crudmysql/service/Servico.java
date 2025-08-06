@@ -5,7 +5,6 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-
 import org.springframework.stereotype.Service;
 
 
@@ -22,30 +21,19 @@ public void listarCarros() {
        
 
         try {
+           
             // 1. Conectar ao banco de dados
-            //conn = DriverManager.getConnection(URL, USUARIO, SENHA);
-
-            // 2. Criar a consulta SQL
-            //String sql = "SELECT ano, marca FROM carro";
-
-            // 3. Preparar e executar
-            //stmt = conn.prepareStatement(sql);
-            //rs = stmt.executeQuery();
-
-            // 4. Percorrer os resultados
-            //while (rs.next()) {
-               // int ano = rs.getInt("ano");
-               // String marca = rs.getString("marca");
-               // System.out.println("Ano: " + ano + ", Marca: " + marca);
-            //}
-
             Connection conn = DriverManager.getConnection(URL, USUARIO, SENHA);
+            // 2. Criar a consulta SQL
             PreparedStatement stmt = conn.prepareStatement("SELECT ano, marca FROM carro");
+            // 3. Preparar e executar
             ResultSet rs = stmt.executeQuery();
          
+            //varre o resultado
             while (rs.next()) {
                 int ano = rs.getInt("ano");
                 String marca = rs.getString("marca");
+              //imprime o resultado
                 System.out.println("Ano: " + ano + ", Marca: " + marca);
             }
         } catch (SQLException e) {

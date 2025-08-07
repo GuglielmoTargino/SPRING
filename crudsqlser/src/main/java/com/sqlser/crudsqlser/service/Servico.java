@@ -21,7 +21,7 @@ public class Servico {
             // 1. Conectar ao banco de dados
             Connection conn = DriverManager.getConnection(URL, USUARIO, SENHA);
             // 2. Criar a consulta SQL
-            PreparedStatement stmt = conn.prepareStatement("SELECT nome_usu FROM usuario");
+            PreparedStatement stmt = conn.prepareStatement("SELECT nome_usu, cargo FROM usuario");
             // 3. Preparar e executar
             ResultSet rs = stmt.executeQuery();
          
@@ -29,8 +29,9 @@ public class Servico {
             while (rs.next()) {
                 //int ano = rs.getInt("ano");
                 String nome = rs.getString("nome_usu");
+                String cargo = rs.getString("cargo");
               //imprime o resultado
-                System.out.println("Nome: " + nome);
+                System.out.println("Nome: " + nome+" Cargo:"+cargo);
             }
         } catch (SQLException e) {
             e.printStackTrace();

@@ -17,10 +17,32 @@ public class Servico {
     private static final String SENHA = "4004";
 
 
-public void listarCarros() {       
+public void ListarCarros() {       
 
-        try {
-           
+        try {           
+            // 1. Conectar ao banco de dados
+            Connection conn = DriverManager.getConnection(URL, USUARIO, SENHA);
+            // 2. Criar a consulta SQL
+            PreparedStatement stmt = conn.prepareStatement("SELECT ano, marca FROM carro");
+            // 3. Preparar e executar
+            ResultSet rs = stmt.executeQuery();
+         
+            //varre o resultado
+            while (rs.next()) {
+                int ano = rs.getInt("ano");
+                String marca = rs.getString("marca");
+              //imprime o resultado
+                System.out.println("Ano: " + ano + ", Marca: " + marca);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        
+    } 
+    }
+
+    public void SalvarCarros() {       
+
+        try {           
             // 1. Conectar ao banco de dados
             Connection conn = DriverManager.getConnection(URL, USUARIO, SENHA);
             // 2. Criar a consulta SQL

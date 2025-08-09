@@ -18,7 +18,7 @@ public class Servico {
     private static final String USUARIO = "ght";
     private static final String SENHA = "4004";
 
-    public void listarCarros(){
+    public void ListarUsuarios(){
 
         try {
             Connection conn = DriverManager.getConnection(URL, USUARIO, SENHA);

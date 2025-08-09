@@ -10,7 +10,7 @@ import com.oracle.crudoracle.entity.Usuario;
 
 
 @RestController
-@RequestMapping("/carros")
+@RequestMapping("/usuarios")
 public class Controller {
 
     @Autowired

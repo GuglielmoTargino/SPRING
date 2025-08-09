@@ -50,6 +50,10 @@ public class Servico {
         return car;
     }
 
+
+
+
+
     public void SalvarCarros(Carro car) {       
 
            String sql = "INSERT INTO carro (ano, marca, modelo, nome) VALUES (?, ?, ?, ?)";
@@ -67,6 +71,11 @@ public class Servico {
             e.printStackTrace();
         }
     }
+
+
+
+
+
 
      // ATUALIZAR
     public void atualizarCarro(Long id, Carro carro) {
@@ -86,6 +95,11 @@ public class Servico {
             e.printStackTrace();
         }
     }
+
+
+
+
+    
 
     // DELETAR
     public void deletarCarro(Long id) {

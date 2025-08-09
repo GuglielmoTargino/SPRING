@@ -5,7 +5,10 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
 import org.springframework.stereotype.Service;
+import com.oracle.crudoracle.entity.Usuario;
+import java.util.ArrayList;
 
 
 
@@ -18,17 +21,20 @@ public class Servico {
     private static final String USUARIO = "ght";
     private static final String SENHA = "4004";
 
-    public void ListarUsuarios(){
+    public List<Usuario> ListarUsuarios(){
+        List<Usuario> usu = new ArrayList<>();
 
         try {
             Connection conn = DriverManager.getConnection(URL, USUARIO, SENHA);
-            PreparedStatement stmt = conn.prepareStatement("SELECT nome_usu FROM usuario");
+            PreparedStatement stmt = conn.prepareStatement("SELECT nome_usu, senha, cargo FROM usuario");
             ResultSet rs = stmt.executeQuery();
          
             while (rs.next()) {
-                //int ano = rs.getInt("ano");
-                String nome = rs.getString("nome_usu");
-                System.out.println("Nome: " + nome);
+                String nom = rs.getString("nome_usu");
+                String cargo = rs.getString("cargo");
+                Long senha = rs.getLong("senha");
+                System.out.println("Nome: " + nom+"cargo"+cargo+"senha"+senha);
+                usu.add(new Usuario(nom, senha, cargo));
             }
             
         } catch (SQLException e) {
@@ -36,8 +42,20 @@ public class Servico {
             e.printStackTrace();
         }
 
-
+        return usu;
 
     }
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

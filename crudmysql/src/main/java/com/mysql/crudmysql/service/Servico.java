@@ -24,7 +24,6 @@ public class Servico {
     public List<Carro> ListarCarros() { 
     List<Carro> car = new ArrayList<>();
 
-
         try {           
             // 1. Conectar ao banco de dados
             Connection conn = DriverManager.getConnection(URL, USUARIO, SENHA);
@@ -39,8 +38,7 @@ public class Servico {
                 Long ano = rs.getLong("ano");                
                 String marca = rs.getString("marca");
                 String modelo = rs.getString("modelo");
-                String nome = rs.getString("nome");
-                
+                String nome = rs.getString("nome");                
                 
               //imprime o resultado
                 System.out.println("Ano: " + ano + ", Marca: " + marca);
@@ -69,6 +67,145 @@ public class Servico {
             e.printStackTrace();
         }
     }
+
+     // ATUALIZAR
+    public void atualizarCarro(Long id, Carro carro) {
+        String sql = "UPDATE carro SET ano = ?, marca = ?, modelo = ?, nome = ? WHERE id = ?";
+
+        try (Connection conn = DriverManager.getConnection(URL, USUARIO, SENHA);
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setLong(1, carro.getAno());
+            stmt.setString(2, carro.getMarca());
+            stmt.setString(3, carro.getModelo());
+            stmt.setString(4, carro.getNome());
+            stmt.setLong(5, id);
+
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // DELETAR
+    public void deletarCarro(Long id) {
+        String sql = "DELETE FROM carro WHERE id = ?";
+
+        try (Connection conn = DriverManager.getConnection(URL, USUARIO, SENHA);
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setLong(1, id);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }
 

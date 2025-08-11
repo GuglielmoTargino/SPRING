@@ -83,6 +83,26 @@ public class Servico {
     }
 
 
+    
+     // ATUALIZAR
+    public void AtualizarUsuario(Long sen, Usuario uso) {
+        String sql = "UPDATE usuario SET nome_usu = ?, cargo = ? WHERE senha = ?";
+
+        try (Connection conn = DriverManager.getConnection(URL, USUARIO, SENHA);
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, uso.getNome_usu());
+            //stmt.setLong(2, uso.getSenha());
+            stmt.setString(2, uso.getCargo());
+            stmt.setLong(3, sen);   
+            
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
 
 

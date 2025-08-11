@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.oracle.crudoracle.service.Servico;
 import com.oracle.crudoracle.entity.Usuario;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 
 
@@ -21,23 +22,31 @@ public class Controller {
     @Autowired
     private Servico serve;
 
-
+    // Listar 
     @GetMapping("/listar")
     public List<Usuario> listar() {
         return serve.ListarUsuarios();
     }
 
+    //Sallvar
     @PostMapping("salvar")
     public String salvar(@RequestBody Usuario usuario) {
         serve.SalvarUsuarios(usuario);
         return "Usuario salvo com sucesso!";
     }
 
-    // DELETE - excluir pelo ID
+    // DELETE - excluir pela senha
     @DeleteMapping("/deletar/{senh}")
     public String deletar(@PathVariable Long senh) {
         serve.DeletarUsuario(senh);
-        return "Carro deletado com sucesso!";
+        return "Usuario deletado com sucesso!";
+    }
+
+    // PUT - atualizar existente
+    @PutMapping("/atualizar/{sen}")
+    public String atualizar(@PathVariable Long sen, @RequestBody Usuario usa) {
+        serve.AtualizarUsuario(sen, usa);
+        return "Carro atualizado com sucesso!";
     }
 
 

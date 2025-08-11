@@ -59,7 +59,7 @@ public class Servico {
            String sql = "INSERT INTO carro (ano, marca, modelo, nome) VALUES (?, ?, ?, ?)";
 
         try (Connection conn = DriverManager.getConnection(URL, USUARIO, SENHA);
-             PreparedStatement stmt = conn.prepareStatement(sql)) {
+             PreparedStatement stmt = conn.prepareStatement(sql)) {                
 
             stmt.setLong(1, car.getAno());
             stmt.setString(2, car.getMarca());
@@ -72,13 +72,8 @@ public class Servico {
         }
     }
 
-
-
-
-
-
      // ATUALIZAR
-    public void atualizarCarro(Long id, Carro carro) {
+    public void atualizarCarro(Long idid, Carro carro) {
         String sql = "UPDATE carro SET ano = ?, marca = ?, modelo = ?, nome = ? WHERE id = ?";
 
         try (Connection conn = DriverManager.getConnection(URL, USUARIO, SENHA);
@@ -88,7 +83,7 @@ public class Servico {
             stmt.setString(2, carro.getMarca());
             stmt.setString(3, carro.getModelo());
             stmt.setString(4, carro.getNome());
-            stmt.setLong(5, id);
+            stmt.setLong(5, idid);
 
             stmt.executeUpdate();
         } catch (SQLException e) {
@@ -102,13 +97,13 @@ public class Servico {
     
 
     // DELETAR
-    public void deletarCarro(Long id) {
+    public void deletarCarro(Long idg) {
         String sql = "DELETE FROM carro WHERE id = ?";
 
         try (Connection conn = DriverManager.getConnection(URL, USUARIO, SENHA);
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setLong(1, id);
+            stmt.setLong(1, idg);
             stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();

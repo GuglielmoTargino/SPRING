@@ -42,7 +42,7 @@ public class Controller {
         return "Usuario deletado com sucesso!";
     }
 
-    // PUT - atualizar existente
+    // PUT - atualizar pela senha.
     @PutMapping("/atualizar/{sen}")
     public String atualizar(@PathVariable Long sen, @RequestBody Usuario usa) {
         serve.AtualizarUsuario(sen, usa);

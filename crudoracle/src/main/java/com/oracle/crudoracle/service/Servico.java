@@ -1,5 +1,6 @@
 package com.oracle.crudoracle.service;
 
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -44,6 +45,27 @@ public class Servico {
 
         return usu;
 
+    }
+
+
+
+    //Salvar
+    public void SalvarUsuarios(Usuario usa) {       
+
+           String sql = "INSERT INTO usuario (nome_usu, senha, cargo) VALUES (?, ?, ?)";
+
+        try (Connection conn = DriverManager.getConnection(URL, USUARIO, SENHA);
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, usa.getNome_usu());
+            stmt.setLong(2, usa.getSenha());
+            stmt.setString(3, usa.getCargo());           
+            
+
+                stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 

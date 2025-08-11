@@ -20,7 +20,7 @@ public class Servico {
     private static final String USUARIO = "ght";
     private static final String SENHA = "4004";
 
-
+    // Listar
     public List<Carro> ListarCarros() { 
     List<Carro> car = new ArrayList<>();
 
@@ -53,7 +53,7 @@ public class Servico {
 
 
 
-
+    //Salvar
     public void SalvarCarros(Carro car) {       
 
            String sql = "INSERT INTO carro (ano, marca, modelo, nome) VALUES (?, ?, ?, ?)";

@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.oracle.crudoracle.service.Servico;
 import com.oracle.crudoracle.entity.Usuario;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+
 
 
 @RestController
@@ -22,4 +25,11 @@ public class Controller {
         return serve.ListarUsuarios();
     }
 
+    @PostMapping("salvar")
+    public String salvar(@RequestBody Usuario usuario) {
+        serve.SalvarUsuarios(usuario);
+        return "Usuario salvo com sucesso!";
+    }
+
 }
+

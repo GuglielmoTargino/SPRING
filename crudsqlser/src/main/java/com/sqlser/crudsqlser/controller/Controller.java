@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -43,6 +44,14 @@ public class Controller {
     public String deletar(@PathVariable Long senh) {
         serve.DeletarUsuario(senh);
         return "Usuario deletado com sucesso!";
+    }
+
+
+    // PUT - atualizar pela senha.
+    @PutMapping("/atualizar/{sen}")
+    public String atualizar(@PathVariable Long sen, @RequestBody Usuario usa) {
+        serve.AtualizarUsuario(sen, usa);
+        return "Carro atualizado com sucesso!";
     }
 
 

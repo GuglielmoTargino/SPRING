@@ -69,5 +69,73 @@ public class Servico {
             e.printStackTrace();
         }
     }
+    // DELETAR
+    public void DeletarUsuario(Long sen) {
+        String sql = "DELETE FROM usuario WHERE senha = ?";
+
+        try (Connection conn = DriverManager.getConnection(URL, USUARIO, SENHA);
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setLong(1, sen);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 }

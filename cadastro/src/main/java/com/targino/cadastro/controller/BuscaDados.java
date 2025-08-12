@@ -16,8 +16,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 @RestController
 @RequestMapping("/dados")
 public class BuscaDados {
-
-
     private MostrarDados xy;
 
     public BuscaDados(MostrarDados y){

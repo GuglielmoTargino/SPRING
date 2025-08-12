@@ -54,11 +54,24 @@ public class Servico {
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
             stmt.setString(1, usa.getNome_usu());
-            stmt.setLong(2, usa.getId());
-                  
-            
+            stmt.setLong(2, usa.getId());            
 
                 stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+    // DELETAR
+    public void DeletarUsuario(Long sen) {
+        String sql = "DELETE FROM usuario WHERE id = ?";
+
+        try (Connection conn = DriverManager.getConnection(URL, USUARIO, SENHA);
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setLong(1, sen);
+            stmt.executeUpdate();
         } catch (SQLException e) {
             e.printStackTrace();
         }

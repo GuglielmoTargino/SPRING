@@ -46,4 +46,68 @@ public class Servico {
     return usu;
     }
 
+    public void SalvarUsuarios(Usuario usa) {       
+
+           String sql = "INSERT INTO usuario (nome_usu, id) VALUES (?, ?)";
+
+        try (Connection conn = DriverManager.getConnection(URL, USUARIO, SENHA);
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, usa.getNome_usu());
+            stmt.setLong(2, usa.getId());
+                  
+            
+
+                stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

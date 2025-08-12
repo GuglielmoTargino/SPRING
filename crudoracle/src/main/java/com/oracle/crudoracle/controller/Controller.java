@@ -29,7 +29,7 @@ public class Controller {
     }
 
     //Sallvar
-    @PostMapping("salvar")
+    @PostMapping("/salvar")
     public String salvar(@RequestBody Usuario usuario) {
         serve.SalvarUsuarios(usuario);
         return "Usuario salvo com sucesso!";

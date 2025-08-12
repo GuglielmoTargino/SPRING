@@ -9,7 +9,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
-
 import com.sqlser.crudsqlser.entity.Usuario;
 
 @Service
@@ -49,6 +48,26 @@ public class Servico {
     } 
 
     return usu;
+    }
+
+
+     //Salvar
+    public void SalvarUsuarios(Usuario usa) {       
+
+           String sql = "INSERT INTO usuario (nome_usu, cargo, senha) VALUES (?, ?, ?)";
+
+        try (Connection conn = DriverManager.getConnection(URL, USUARIO, SENHA);
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            stmt.setString(1, usa.getNome_usu());           
+            stmt.setString(2, usa.getCargo()); 
+            stmt.setLong(3, usa.getSenha());          
+            
+
+                stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
 }

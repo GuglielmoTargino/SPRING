@@ -19,7 +19,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class Mavenproject1netbeans {
 
     public static void main(String[] args) {
-         SpringApplication.run(HelloApiApplication.class, args);
+         SpringApplication.run(Mavenproject1netbeans.class, args);
         System.out.println("Hello World!");
     }
 }

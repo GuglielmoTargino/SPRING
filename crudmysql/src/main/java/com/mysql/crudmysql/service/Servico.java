@@ -1,7 +1,6 @@
 package com.mysql.crudmysql.service;
 
 import java.sql.Connection;
-//import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -16,18 +15,14 @@ import com.mysql.crudmysql.repository.SistemDao;
 
 
 @Service
-public class Servico {
-    //private static final String URL = "jdbc:mysql://localhost:3306/carro";
-   // private static final String USUARIO = "ght";
-   // private static final String SENHA = "4004";
+public class Servico { 
 
     // Listar
     public List<Carro> ListarCarros() { 
     List<Carro> car = new ArrayList<>();
 
         try {           
-            // 1. Conectar ao banco de dados
-           // Connection conn = DriverManager.getConnection(URL, USUARIO, SENHA);
+    
             // 2. Criar a consulta SQL
             SistemDao conec= new SistemDao();
             Connection conn = conec.conecta();
@@ -57,7 +52,7 @@ public class Servico {
 
 
     //Salvar
-    public void SalvarCarros(Carro car) {       
+    public void SalvarCarros(Carro car) {      
 
            String sql = "INSERT INTO carro (ano, marca, modelo, nome) VALUES (?, ?, ?, ?)";
 
@@ -98,12 +93,7 @@ public class Servico {
         } catch (SQLException e) {
             e.printStackTrace();
         }
-    }
-
-
-
-
-    
+    }    
 
     // DELETAR
     public void deletarCarro(Long idg) {

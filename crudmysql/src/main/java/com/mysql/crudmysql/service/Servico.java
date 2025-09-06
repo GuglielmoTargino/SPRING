@@ -52,8 +52,7 @@ public class Servico {
 
 
     //Salvar
-    public void SalvarCarros(Carro car) {      
-
+    public void SalvarCarros(Carro car) { 
            String sql = "INSERT INTO carro (ano, marca, modelo, nome) VALUES (?, ?, ?, ?)";
 
         try 
@@ -74,7 +73,8 @@ public class Servico {
     }
 
      // ATUALIZAR
-    public void atualizarCarro(Long idid, Carro carro) {
+    public void atualizarCarro(Carro carro,Long idid) {
+        //public void atualizarCarro(Long idid, Carro carro) {
         String sql = "UPDATE carro SET ano = ?, marca = ?, modelo = ?, nome = ? WHERE id = ?";
 
         try
@@ -82,12 +82,14 @@ public class Servico {
             SistemDao conec= new SistemDao();
             Connection conn = conec.conecta();
             PreparedStatement stmt = conn.prepareStatement(sql); 
-
+            
+            
             stmt.setLong(1, carro.getAno());
             stmt.setString(2, carro.getMarca());
             stmt.setString(3, carro.getModelo());
             stmt.setString(4, carro.getNome());
-            stmt.setLong(5, idid);
+            //stmt.setLong(5,carro.getId());           
+            stmt.setLong(5,idid);            
 
             stmt.executeUpdate();
         } catch (SQLException e) {

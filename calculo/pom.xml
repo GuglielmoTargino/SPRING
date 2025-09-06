@@ -33,6 +33,12 @@
 		<java.version>17</java.version>
 	</properties>
 	<dependencies>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-actuator</artifactId>
+		</dependency>
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
@@ -60,16 +66,6 @@
 			<artifactId>mysql-connector-j</artifactId>
 			<scope>runtime</scope>
 		</dependency>
-	
-
-		
-		<dependency> <!--=====conector para bd oracle  --> 
-    		<groupId>com.oracle.database.jdbc</groupId>
-    		<artifactId>ojdbc8</artifactId>
-    		<version>19.3.0.0</version>
-		</dependency>
-
-		
 	
 
 	
@@ -103,10 +99,10 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-security</artifactId>		
-		</dependency>		
-		
-		-->
-		<dependency>
+		</dependency>	
+
+		==========================	
+				<dependency>
 <groupId>org.springframework.boot</groupId>
 <artifactId>spring-boot-starter-security</artifactId>
 </dependency>
@@ -116,7 +112,6 @@
 <artifactId>jjwt-impl</artifactId>
 <version>0.11.5</version>
 </dependency>
-
 <dependency>
 <groupId>io.jsonwebtoken</groupId>
 <artifactId>jjwt-jackson</artifactId>
@@ -128,6 +123,15 @@
 <artifactId>jjwt-api</artifactId>
 <version>0.11.5</version>
 </dependency>
+		
+		-->
+
+
+
+
+
+
+
 		
 		
 		

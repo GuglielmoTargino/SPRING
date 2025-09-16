@@ -10,10 +10,10 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import com.calculos.calculo.entity.Alugado;
-import com.calculos.calculo.entity.Carro;
-import com.calculos.calculo.entity.Usuario;
-import com.calculos.calculo.service.CarroService;
+
+import com.pjt8sembck2.pjt8sembck2.entity.Alugado;
+import com.pjt8sembck2.pjt8sembck2.entity.Carro;
+import com.pjt8sembck2.pjt8sembck2.service.CarroService;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -117,27 +117,6 @@ public class CarroController {
         }
     }
 
-
-
-
-
-
-/* 
-    @DeleteMapping("/aluga/{id}")
-    public ResponseEntity<String> alugar(@PathVariable Long id){
-
-        try {
-            String resultado= this.carroService.deletealug(id);
-            //String resultado= this.carroService.delete(id);
-            return new ResponseEntity<>(resultado,HttpStatus.OK);
-        } catch (Exception e) {
-            // TODO: handle exception
-            return new ResponseEntity<>("null",HttpStatus.BAD_REQUEST);
-        }
-
-    }
-
-    */
 ////////////////////////////////endpoint Alugadocomponent aqui 
 
    
@@ -171,24 +150,5 @@ public class CarroController {
         }
     }
 
-
-
-
-////////////////////////////USUARIO
-/* 
-
-@PostMapping("/login")
-    public ResponseEntity<Usuario> login(@RequestParam String nomeusu, @RequestParam String senha) {
-        Usuario user = carroService.autenticar(nomeusu, senha);
-        
-        if (user != null) {
-            return ResponseEntity.ok(user); // retorna o usuário encontrado
-        } else {
-            //return ResponseEntity.status(401).body("Usuário ou senha inválidos");
-            return ResponseEntity.status(401).build(); // 401 sem corpo
-        }
-    }
-
-*/
 
 }

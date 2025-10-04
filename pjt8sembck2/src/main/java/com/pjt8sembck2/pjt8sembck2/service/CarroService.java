@@ -13,22 +13,38 @@ import org.springframework.stereotype.Service;
 import com.pjt8sembck2.pjt8sembck2.entity.Alugado;
 import com.pjt8sembck2.pjt8sembck2.entity.Carro;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;;
+
 
 
 @Service
 public class CarroService {
 
-
-
-
+    //LocalDateTime timedata = LocalDateTime.now();
+    //DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+    //String data = timedata.format(formato);
+   
 
     @Autowired
     private CarroRepository carrorepositorio;
     @Autowired
     private AlugaRepository carroalugado;
    
+/* 
 
+public Carro convC(Alugado alu){
+    Carro luga = new Carro();
+    luga.setNome(alu.getNome());
+    luga.setAno(alu.getAno());
+    luga.setMarca(alu.getMarca());
+    luga.setModelo(alu.getModelo());
+    // copie os demais atributos necessários
+    return luga;
+}
+*/
 
+/*
 public Carro convC(Carro alu){
     Carro luga = new Carro();
     luga.setNome(alu.getNome());
@@ -38,6 +54,14 @@ public Carro convC(Carro alu){
     // copie os demais atributos necessários
     return luga;
 }
+ * 
+ * 
+ * 
+ * 
+ * 
+ */
+
+
 
     public String save(Carro carro){
 
@@ -84,11 +108,19 @@ public Carro convC(Carro alu){
     }
 
     public Alugado convCar(Carro alu){
+
+    LocalDateTime timedata = LocalDateTime.now();
+    DateTimeFormatter formato = DateTimeFormatter.ofPattern("dd/MM/yyyy HH:mm:ss");
+    String data = timedata.format(formato);
+
+
     Alugado luga = new Alugado();
     luga.setNome(alu.getNome());
     luga.setAno(alu.getAno());
     luga.setMarca(alu.getMarca());
-    luga.setModelo(alu.getModelo());
+    luga.setModelo(data);
+    // luga.setModelo(alu.getModelo());
+
     // copie os demais atributos necessários
     return luga;
 }

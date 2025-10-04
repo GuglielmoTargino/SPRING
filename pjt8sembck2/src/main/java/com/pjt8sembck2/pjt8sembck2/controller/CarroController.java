@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import com.pjt8sembck2.pjt8sembck2.entity.Alugado;
 import com.pjt8sembck2.pjt8sembck2.entity.Carro;
+//import com.pjt8sembck2.pjt8sembck2.entity.Cliente;
 import com.pjt8sembck2.pjt8sembck2.service.CarroService;
 
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -20,6 +21,7 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import java.util.List;
+
 
 @RestController
 @RequestMapping("/carro")
@@ -150,5 +152,17 @@ public class CarroController {
         }
     }
 
+
+
+    ////////////////////////////endpoint cliente
+    /// 
+    /* 
+    @PostMapping("/cliente")
+    //public ResponseEntity<String> save(@RequestBody Alugado carro){
+        public ResponseEntity<Cliente> cliente(@RequestBody Cliente cli){
+            return null;
+     
+    }
+    */
 
 }
